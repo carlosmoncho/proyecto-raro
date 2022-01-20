@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
+use App\Models\Offer;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Mail\Transport\SesTransport;
@@ -88,7 +89,10 @@ class ProductController extends Controller
     }
 
     public function delete($id){
-        Product::find($id)->delete();
+        $product = Product::find($id);
+        $product->likes()->detach();
+        Offer::where("product_id", $id)->delete();
+        $product->delete();
         return back();
     }
 }
