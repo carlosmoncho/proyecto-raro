@@ -15,7 +15,7 @@ class Offers extends Migration
     {
         Schema::create('offers', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->boolean('accepted');
+            $table->boolean('accepted')->nullable();
             $table->foreignId('product_id')->constrained('products');
             $table->foreignId('user_id')->constrained('users');
             $table->float('price', 10, 2);

@@ -21,7 +21,7 @@ class OfferFactory extends Factory
         $product= Product::all()->random();
         DB::table('products')->where("id", $product->id)->update(["sale" => 1]);
         return [
-            'accepted' => $this->faker->boolean(),
+            'accepted' => null,
             'product_id' => $product->id,
             'user_id' => User::inRandomOrder()->first()->id,
             'price' => $this->faker->randomFloat(2, 1, 100 ),

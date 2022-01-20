@@ -6,9 +6,9 @@ return [
        'All Products' => '/index',
        'Populars' => '/populars',
        'News' => '/news',
-        'Shopping cart' => '/shopping',
-        'My Offers' => '/offer',
     ]],
     ['Load' => '/product'],
+    ['Shopping cart' => '/shopping'],
+    ['My Offers' => '/offerController'],
 
 ];

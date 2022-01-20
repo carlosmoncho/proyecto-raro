@@ -1,0 +1,261 @@
+{
+	"info": {
+		"_postman_id": "df3b1f8d-ad64-425e-9837-1670e88fb224",
+		"name": "BatoiPOP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Offer",
+			"item": [
+				{
+					"name": "GET Offer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/offers/5",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"offers",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Offers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/offers",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Offer",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"user_id\": 1,\n    \"price\": 0,\n    \"product_id\": 1,\n    \"sended\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://projecte.my/api/offers",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"offers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Offer",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"price\": 45\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://projecte.my/api/offers/4",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"offers",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Offer",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/offers/110",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"offers",
+								"110"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "GET Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/products",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/products/1",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"coche\",\n    \"original_price\": 34,\n    \"discount_price\": 10,\n    \"sale\": true,\n    \"category_id\": 4,\n    \"user_id\": 1,\n    \"img\": \"https://empresas.blogthinkbig.com/wp-\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://projecte.my/api/products",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Product",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"coche\",\n    \"original_price\": 34,\n    \"discount_price\": 10,\n    \"sale\": true,\n    \"category_id\": 4,\n    \"user_id\": 1,\n    \"img\": \"https://empresas.blogthinkbig.com/wp-\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://projecte.my/api/products/1",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://projecte.my/api/products/252",
+							"protocol": "http",
+							"host": [
+								"projecte",
+								"my"
+							],
+							"path": [
+								"api",
+								"products",
+								"252"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
