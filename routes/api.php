@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::apiResource('offers',\App\Http\Controllers\Api\OfferController::class);
+Route::apiResource('products',\App\Http\Controllers\Api\ProductController::class);
+Route::post('login', [\App\Http\Controllers\Api\LoginController::class,'login']);

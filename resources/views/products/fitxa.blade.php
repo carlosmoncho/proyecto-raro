@@ -42,6 +42,11 @@
                         @endif
                     </a>
                 @endif
+                <form action="{{route('shopping.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="text" name="id" value="{{$validProduct->id}}" hidden>
+                    <button type="submit" class="btn badge bg-dark text-white position-absolute">Nueva Oferta</button>
+                </form>
             </div>
         </div>
     </div>

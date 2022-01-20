@@ -1,0 +1,204 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Batoi POP",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/login": {
+            "post": {
+                "tags": [
+                    "auth"
+                ],
+                "summary": "Sign in",
+                "description": "Login by email, password",
+                "operationId": "authLogin",
+                "requestBody": {
+                    "description": "Pass user credentials",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "email",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "email",
+                                        "example": "user1@mail.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "format": "password",
+                                        "example": "PassWord12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "401": {
+                        "description": "Wrong credentials response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Sorry, wrong email address or password. Please try again"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "token": {
+                                            "type": "string",
+                                            "example": "user"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Product": {
+                "required": [
+                    "id,title"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "readOnly": "true",
+                        "example": "coche"
+                    },
+                    "original_price": {
+                        "type": "double",
+                        "readOnly": "true",
+                        "example": "132"
+                    },
+                    "discount_price": {
+                        "type": "double",
+                        "readOnly": "true",
+                        "example": "132"
+                    },
+                    "sale": {
+                        "type": "boolean",
+                        "readOnly": "true",
+                        "example": "true"
+                    },
+                    "category_id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "13"
+                    },
+                    "img": {
+                        "type": "string",
+                        "maxLength": 60,
+                        "readOnly": "true",
+                        "example": "imagen.jpg"
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "19"
+                    },
+                    "created_at": {
+                        "description": "Datetime marker of verification status",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true",
+                        "example": "2019-02-25 12:59:20"
+                    },
+                    "updated_at": {
+                        "description": "Datetime marker of verification status",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true",
+                        "example": "2019-02-25 12:59:20"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Movie"
+                }
+            },
+            "User": {
+                "required": [
+                    "password"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "readOnly": "true",
+                        "example": "1"
+                    },
+                    "name": {
+                        "type": "string",
+                        "maxLength": 32,
+                        "example": "John"
+                    },
+                    "rol": {
+                        "description": "User rol",
+                        "type": "string",
+                        "readOnly": "true"
+                    },
+                    "email": {
+                        "description": "User unique email address",
+                        "type": "string",
+                        "format": "email",
+                        "readOnly": "true",
+                        "example": "user@gmail.com"
+                    },
+                    "email_verified_at": {
+                        "description": "Datetime marker of verification status",
+                        "type": "string",
+                        "format": "date-time",
+                        "readOnly": "true",
+                        "example": "2019-02-25 12:59:20"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        },
+        "securitySchemes": {
+            "apiAuth": {
+                "type": "http",
+                "description": "Login with email and password to get the authentication token",
+                "name": "Token based Based",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "security": [
+        []
+    ]
+}

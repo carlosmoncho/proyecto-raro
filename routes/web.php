@@ -21,8 +21,10 @@ use Illuminate\Support\Facades\Route;
 Route::resource('product', ProductController::class)->only('update', 'edit')->middleware(['auth','premium','owner:Product']);
 Route::resource('product', ProductController::class)->except('update', 'edit','delete')->middleware(['auth','premium']);
 
-Route::resource('shopping', \App\Http\Controllers\HandleMyShopingCartController::class);
-Route::resource('offer', \App\Http\Controllers\HandleMyOffersController::class);
+Route::resource('/shopping', \App\Http\Controllers\HandleMyShopingCartController::class);
+Route::resource('/offerController', \App\Http\Controllers\HandleMyOffersController::class);
+Route::get('/accepted/{id}',[\App\Http\Controllers\HandleMyOffersController::class,'accepted'])->name('accepted');
+Route::get('/rejected/{id}',[\App\Http\Controllers\HandleMyOffersController::class,'rejected'])->name('rejected');
 
 Route::get('/productsLikes/{id}', [\App\Http\Controllers\ProductController::class,'like'])->name('product.like');
 Route::get('/store', [\App\Http\Controllers\ProductController::class,'store']);
@@ -31,6 +33,7 @@ Route::get('/index', [\App\Http\Controllers\LandingPage::class,'index']);
 Route::get('/populars', [\App\Http\Controllers\LandingPage::class,'showLikes']);
 Route::get('/news', [\App\Http\Controllers\LandingPage::class,'showMostNews']);
 Route::get('/delete/{id}', [\App\Http\Controllers\ProductController::class,'delete'])->middleware(['auth','premium','owner:Product']);
+Route::get('/deleteOffer/{id}', [\App\Http\Controllers\HandleMyShopingCartController::class,'delete']);
 
 
 Route::get('logout', [LoginController::class, 'logout'])->name('logout');
